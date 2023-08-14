@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Avatar;
+use Intervention\Image\Facades\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -59,5 +61,15 @@ class Candidate extends Model
                     ->where('id', $positionId);
             })
             ->count();
+    }
+
+    public function photoBase64()
+    {
+
+        $path = $this->user->profile_photo_path
+            ? asset('storage/' . $this->user->profile_photo_path, null, true)
+            : null;
+
+        return $path;
     }
 }

@@ -55,7 +55,7 @@ trait ElectionTrait
             "phone" => $candidate->user->phone,
             "photo" => $candidate->user->profile_photo_url,
             "selected" => false,
-            "vote_count" => $candidate->voteCount($election_id, $position_id)
+            "vote_count" => $candidate->voteCount($election_id, $position_id),
         ];
 
         // if ($candidate->relationLoaded('votes')) {

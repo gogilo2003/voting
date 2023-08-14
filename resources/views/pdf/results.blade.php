@@ -2,7 +2,6 @@
 
 
 @section('content')
-    @dump($election)
     <div class="text-center">
         <h1 class="text-5xl font-semibold mb-3">{{ $election->title }}</h1>
         <h2 class="text-2xl mb-6 text-gray-700">{{ $election->description }}</h2>
@@ -14,6 +13,13 @@
                 @foreach ($position->candidates as $candidate)
                     <div class="card">
                         <h4>{{ $candidate->name }}</h4>
+                        <div class="image">
+                            @if ($candidate->photo)
+                                <img src="{!! $candidate->photo !!}" alt="">
+                            @else
+                                <div style="background-color: red; height: 5rem; width: 5rem;"></div>
+                            @endif
+                        </div>
                     </div>
                 @endforeach
             </div>

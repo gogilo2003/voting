@@ -20,9 +20,9 @@ class ElectionResultsController extends Controller
         }, 'positions.candidates.votes']));
 
         $pdf = App::make('snappy.pdf.wrapper');
-        // $pdf->loadHTML('<h1>Test</h1>');
+        $pdf->loadHTML(view('pdf.results', compact('election'))->render());
 
-        $pdf->loadView('pdf.results', compact('election'));
+        // $pdf->loadView('pdf.results', compact('election'));
         return $pdf->inline();
         // return $pdf->stream();
         // return view('pdf.results', compact('election'));

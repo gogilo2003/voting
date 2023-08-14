@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body class="bg-white">
+<body>
     @yield('content')
 </body>
 
