@@ -9,7 +9,7 @@ use App\Models\Candidate;
 
 trait ElectionTrait
 {
-    function mapElection(Election $election): array
+    function mapElection(Election $election): object
     {
         $el = [
             "id" => $election->id,
@@ -26,10 +26,10 @@ trait ElectionTrait
             $el["positions"] = $election->positions->map(fn ($item) => $this->mapPosition($item, $election->id));
         }
 
-        return $el;
+        return (object)$el;
     }
 
-    function mapPosition(Position $position, $election_id = null): array
+    function mapPosition(Position $position, $election_id = null): object
     {
         $pos = [
             "id" => $position->id,
@@ -44,10 +44,10 @@ trait ElectionTrait
             );
         }
 
-        return $pos;
+        return (object)$pos;
     }
 
-    function mapCandidate(Candidate $candidate, $election_id, $position_id): array
+    function mapCandidate(Candidate $candidate, $election_id, $position_id): object
     {
         $c = [
             "id" => $candidate->id,
@@ -62,11 +62,11 @@ trait ElectionTrait
         //     $c['votes'] = $candidate->votes;
         // }
 
-        return $c;
+        return (object)$c;
     }
-    function mapMember(Member $member): array
+    function mapMember(Member $member): object
     {
-        return [
+        return (object)[
             "id" => $member->id,
             "name" => $member->name,
             "phone" => $member->phone,

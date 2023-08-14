@@ -25,7 +25,7 @@ use App\Http\Controllers\ElectionResultsController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('results/{election}', [WelcomeController::class, 'results'])->name('results');
-Route::get('/elections/{electionId}/results', [ElectionResultsController::class, 'showResults']);
+Route::get('/elections/{electionId}/results', [ElectionResultsController::class, 'showResults'])->name('results-pdf');
 
 Route::middleware([
     'auth:sanctum',

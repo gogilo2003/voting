@@ -1,3 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.card {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, );
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, afr);
+}

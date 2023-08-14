@@ -86,9 +86,17 @@ const stats = ref([
         </div>
 
         <div class="relative m-4 p-6 shadow bg-white rounded-3xl">
-            <h2 class="text-3xl text-center md:text-left md:text-5xl font-bold uppercase" v-text="election.title"></h2>
-            <h4 v-text="election.description"
-                class="text-md md:text-xl text-gray-600 mb-6 md:mb-12 md:text-left text-center"></h4>
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-3xl text-center md:text-left md:text-5xl font-bold uppercase" v-text="election.title">
+                    </h2>
+                    <h4 v-text="election.description"
+                        class="text-md md:text-xl text-gray-600 mb-6 md:mb-12 md:text-left text-center"></h4>
+                </div>
+                <div>
+                    <a :href="route('results-pdf', election.id)">Download</a>
+                </div>
+            </div>
             <div class="grid grid-cols-2 md:grid-cols-3 md:gap-6 gap-3 my-3 md:my-6">
                 <div class="shadow py-3 px-5 flex gap-2 items-center rounded-xl border" :class="stat.classes"
                     v-for="stat in stats">
